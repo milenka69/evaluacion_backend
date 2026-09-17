@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ juego.titulo }} | Tienda Pixel{% endblock %}
+
+{% block contenido %}
+<a class="volver" href="{% url 'app:inicio' %}">&larr; Volver al catalogo</a>
+<article class="detalle">
+    <div class="detalle-cabecera">
+        <div>
+            <span class="eyebrow">{{ juego.plataforma|upper }}</span>
+            <h1>{{ juego.titulo }}</h1>
+        </div>
+        <span class="etiqueta">{{ juego.etiqueta|lower }}</span>
+    </div>
+    <p class="detalle-descripcion">{{ juego.descripcion|default:"Este juego todavia no tiene descripcion." }}</p>
+    <dl class="datos-juego">
+        <div>
+            <dt>Plataforma</dt>
+            <dd>{{ juego.plataforma }}</dd>
+        </div>
+        <div>
+            <dt>Duracion estimada</dt>
+            <dd>{{ juego.horas }} horas</dd>
+        </div>
+        <div>
+            <dt>Multijugador</dt>
+            <dd>{{ juego.multijugador|yesno:"Si,No" }}</dd>
+        </div>
+        <div>
+            <dt>Descripcion</dt>
+            <dd>{{ juego.descripcion|length }} caracteres</dd>
+        </div>
+    </dl>
+    <div class="precio-detalle">
+        <span>Precio final</span>
+        <strong>${{ juego.precio_descuento }} <small>CLP</small></strong>
+        {% if juego.oferta %}
+        <del>Precio original: ${{ juego.precio }}</del>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}

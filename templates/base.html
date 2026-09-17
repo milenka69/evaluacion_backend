@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Tienda Pixel{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header class="cabecera">
+        <a class="marca" href="{% url 'inicio' %}">
+            <img src="{% static 'static/imagenes/logo.jpg' %}" alt="Logo de Tienda Pixel">
+            <span>Tienda Pixel</span>
+        </a>
+        <p class="lema">Juega distinto.</p>
+    </header>
+    <main class="contenedor">
+        {% block contenido %}{% endblock %}
+    </main>
+    <footer class="pie">Tienda Pixel <span aria-hidden="true">&middot;</span> Videojuegos para tu proxima partida</footer>
+</body>
+</html>

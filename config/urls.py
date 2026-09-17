@@ -3,6 +3,6 @@ from django.urls import path
 from Tienda import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('juego/<int:id>/', views.juego, name='juego')
+    path('', views.inicio, name='inicio'),
+    path('juego/<int:id>/', views.detalle, name='detalle')
 ]

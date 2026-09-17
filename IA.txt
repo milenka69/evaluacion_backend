@@ -1,0 +1,16 @@
+Etapa intermedia:
+
+debo crear una tienda de videojuegos llamada "Tienda Pixel" con su catalogo, el base.html es la estructura HTML completa, cabecera con el nombre del sitio y
+una imagen, {% block titulo %} , {% block contenido %} y enlace al CSS con {% static %}
+inicio.html y detalle.html en <app>/templates/<app>/ . Ambas extienden de base.html y solo
+rellenan bloques.
+inicio.html : {% for %} con {% empty %} , muestra al menos título, plataforma y precio de cada juego,
+muestra el precio promedio y la cantidad en oferta calculados en la vista, y enlaza al detalle con {% url
+'app:detalle' p.id %}
+detalle.html : muestra todos los datos del juego, precio con descuento y la etiqueta, y un enlace de vuelta a
+la portada con {% url %}
+Al menos dos filtros distintos en el conjunto de las plantillas ( upper , lower , yesno , default , length ,
+truncatewords , u otros).
+
+Se utilizo para crear el sitio web. 
+

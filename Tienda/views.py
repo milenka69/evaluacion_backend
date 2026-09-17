@@ -1,12 +1,11 @@
 from django.shortcuts import render
 
 
+def inicio(request):
+    return render(request, 'inicio.html')
 
 
-def home(request):
-    return render(request, 'Home.html')
-
-def juego(request):
+def detalle(request):
     JUEGOS = [
     {"id": 1, "titulo": "Caminos del Norte", "plataforma": "PC", "precio": 24990,
      "horas": 30, "multijugador": False, "oferta": False,
@@ -33,4 +32,4 @@ def juego(request):
      "horas": 20, "multijugador": True, "oferta": False,
      "descripcion": "Estrategia cooperativa: defiende el puerto con hasta 4 amigos."},
 ]
-    return render(request, 'juego.html', JUEGOS)
+    return render(request, 'detalle.html', JUEGOS)

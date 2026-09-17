@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block titulo %}Catalogo | Tienda Pixel{% endblock %}
+
+{% block contenido %}
+<section class="hero">
+    <p class="eyebrow">CATALOGO 2026</p>
+    <h1>Tu proxima aventura empieza aqui.</h1>
+    <p>Explora una seleccion de juegos para jugar a tu manera.</p>
+</section>
+
+<section class="resumen" aria-label="Resumen del catalogo">
+    <div>
+        <span class="dato">{{ juegos|length }}</span>
+        <span>titulos disponibles</span>
+    </div>
+    <div>
+        <span class="dato">${{ precio_promedio }}</span>
+        <span>precio promedio</span>
+    </div>
+    <div>
+        <span class="dato">{{ cantidad_oferta }}</span>
+        <span>en oferta</span>
+    </div>
+</section>
+
+<section class="catalogo">
+    <div class="seccion-heading">
+        <h2>Todos los juegos</h2>
+        <span>{{ juegos|length }} resultados</span>
+    </div>
+    <div class="rejilla-juegos">
+        {% for p in juegos %}
+        <article class="juego-card">
+            <div class="card-top">
+                <span class="plataforma">{{ p.plataforma|upper }}</span>
+                <span class="estado">{{ p.oferta|yesno:"OFERTA,PRECIO NORMAL" }}</span>
+            </div>
+            <h3>{{ p.titulo }}</h3>
+            <p class="descripcion">{{ p.descripcion|truncatewords:12 }}</p>
+            <div class="card-bottom">
+                <strong>${{ p.precio }}</strong>
+                <a class="boton boton-pequeno" href="{% url 'detalle' p.id %}">Ver detalle</a>
+            </div>
+        </article>
+        {% empty %}
+        <p class="vacio">No hay juegos disponibles en este momento.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
