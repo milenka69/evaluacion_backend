@@ -5,7 +5,7 @@ def inicio(request):
     return render(request, 'inicio.html')
 
 
-def detalle(request):
+def juego(request):
     JUEGOS = [
     {"id": 1, "titulo": "Caminos del Norte", "plataforma": "PC", "precio": 24990,
      "horas": 30, "multijugador": False, "oferta": False,

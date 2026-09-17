@@ -4,5 +4,5 @@ from Tienda import views
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
-    path('juego/<int:id>/', views.detalle, name='detalle')
+    path('juego/<int:id>/', views.juego, name='detalle')
 ]
